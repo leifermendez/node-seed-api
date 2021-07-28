@@ -12,7 +12,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "expeditious-engine-redis": "^0.1.2",
     "express": "^4.17.1",
-    "mongoose": "^5.13.3"
+    "express-expeditious": "^5.1.1",
+    "mongoose": "^5.13.3",
+    "response-time": "^2.3.2"
   }
 }

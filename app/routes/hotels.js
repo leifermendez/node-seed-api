@@ -2,15 +2,19 @@ const express = require('express')
 const router = express.Router()
 const checkOrigin = require('../middleware/origin')
 const { cacheInit } = require('../middleware/cache')
-const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/users')
+const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/hotels')
 
-//TODO: localhost/users/ --> LISTA
-router.get('/', checkOrigin, cacheInit, getItems)
+//TODO: Turbo 🐱‍🏍  cache!
+router.get(
+    '/',
+    checkOrigin,
+    cacheInit, //TODO: <--- 😨 ¿WTF?
+    getItems
+)
 
-//TODO: localhost/users/:id --> DETALLE
 router.get('/:id', checkOrigin, getItem)
 
-router.post('/', checkOrigin, createItem)
+router.post('/', checkOrigin, cacheInit, createItem)
 
 router.patch('/:id', updateItem)
 
