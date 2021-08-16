@@ -1,13 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const checkOrigin = require('../middleware/origin')
-const { cacheInit } = require('../middleware/cache')
+const checkAuth = require('../middleware/auth')
+const checkRoleAuth = require('../middleware/roleAuth')
 const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/users')
 
-//TODO: localhost/users/ --> LISTA
-router.get('/', checkOrigin, cacheInit, getItems)
+router.get('/', checkAuth, checkRoleAuth(['admin']), getItems)
 
-//TODO: localhost/users/:id --> DETALLE
 router.get('/:id', checkOrigin, getItem)
 
 router.post('/', checkOrigin, createItem)

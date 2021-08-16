@@ -9,6 +9,14 @@ const UserScheme = new mongoose.Schema({
     },
     email: {
         type: String
+    },
+
+    password: {
+        type: String
+    },
+    role: {
+        type: String,
+        default: 'user'
     }
 },
     {
